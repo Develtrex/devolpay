@@ -1,0 +1,56 @@
+package com.develtrex.devolpay.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.CollectionId;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Date;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Component
+@Scope("prototype")
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false)
+@Entity
+@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+public class ClientManager extends NumericPkV1 implements Serializable {
+
+    private static final long serial_version_uid = 1L;
+    @Column(name = "owner_user_bean")
+    private User owner_user_bean;
+    @Column(name = "owner_user_id")
+    private String owner_user_id;
+    @Column(name = "billing_manager_bean")
+    private BillingManager billing_manager_bean;
+    @Column(name = "billing_manager_id")
+    private String billing_manager_id;
+    @Column(name = "billing_user_bean")
+    private User billing_user_bean;
+    @Column(name = "billing_user_id")
+    private String billing_user_id;
+    @Column(name = "client_bean")
+    private Client client_bean;
+    @Column(name = "client_id")
+    private String client_id;
+    @Column(name = "start_date")
+    private Date start_date;
+    @Column(name = "end_date")
+    private Date end_date;
+    @Column(name = "state")
+    private String state;
+    @Column(name = "version")
+    private Long version;
+    private String operation;
+
+}
