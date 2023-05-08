@@ -16,6 +16,7 @@
         <module>service</module>
         <module>process</module>        
         <module>api-maintenance</module>
+        <module>../../Devtest/jofrantoba-model-jpa</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

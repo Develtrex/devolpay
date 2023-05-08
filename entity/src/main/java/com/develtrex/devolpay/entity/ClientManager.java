@@ -14,6 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -29,20 +32,37 @@ public class ClientManager extends NumericPkV1 implements Serializable {
     private static final long serial_version_uid = 1L;
     @Column(name = "owner_user_bean")
     private User owner_user_bean;
-    @Column(name = "owner_user_id")
-    private String owner_user_id;
+    
+     //Mapping owner user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_user_id")
+    private String ownserUser;
+    
+    
     @Column(name = "billing_manager_bean")
     private BillingManager billing_manager_bean;
-    @Column(name = "billing_manager_id")
-    private String billing_manager_id;
+    
+    //Mapping billing manager id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_manager_id")
+    private BillingManager billingManager;
+    
     @Column(name = "billing_user_bean")
     private User billing_user_bean;
-    @Column(name = "billing_user_id")
-    private String billing_user_id;
+    
+      //Mapping billing user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_user_id")
+    private User billingUser;
+    
     @Column(name = "client_bean")
     private Client client_bean;
-    @Column(name = "client_id")
-    private String client_id;
+    
+    //Mapping client
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client;
+    
     @Column(name = "start_date")
     private Date start_date;
     @Column(name = "end_date")
@@ -52,5 +72,6 @@ public class ClientManager extends NumericPkV1 implements Serializable {
     @Column(name = "version")
     private Long version;
     private String operation;
+
 
 }

@@ -13,6 +13,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -25,7 +28,7 @@ import java.util.Date;
 @Table(catalog = "devolpay", schema = "devolpay", name = "client")
 public class Loan extends NumericPkV1 implements Serializable {
 
-    private static final long serial_version_uid = 1L;
+     private static final long serial_version_uid = 1L;
     @Column(name = "date")
     private Date date;
     @Column(name = "amoun")
@@ -46,10 +49,18 @@ public class Loan extends NumericPkV1 implements Serializable {
     private String operation;
     @Column(name = "client_bean")
     private Client client_bean;
-    @Column(name = "client_id")
-    private String client_id;
-    @Column(name = "user_id")
-    private String user_id;
+    
+  //Mapping client
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client;
+    
+   //Mapping user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+    
+    
     @Column(name = "name")
     private String name;
     @Column(name = "lastname")
