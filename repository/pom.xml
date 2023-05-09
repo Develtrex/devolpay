@@ -10,6 +10,65 @@
     <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>        
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <version.jofrantoba-model-jpa>1.0.0</version.jofrantoba-model-jpa>
+        <version.spring-context>5.3.14</version.spring-context>
+        <version.slf4j-api>1.7.32</version.slf4j-api>
+        <version.slf4j-simple>1.7.32</version.slf4j-simple>
+        <version.log4j-api>2.17.0</version.log4j-api>
+        <version.log4j-core>2.17.0</version.log4j-core>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>entity</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>entity</artifactId>
+            <version>${project.version}</version>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.jofrantoba.model.jpa</groupId>
+            <artifactId>jofrantoba-model-jpa</artifactId>
+            <version>${version.jofrantoba-model-jpa}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jofrantoba.model.jpa</groupId>
+            <artifactId>jofrantoba-model-jpa</artifactId>
+            <version>${version.jofrantoba-model-jpa}</version>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${version.spring-context}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j-api}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${version.slf4j-simple}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${version.log4j-api}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${version.log4j-core}</version>
+        </dependency>
+    </dependencies>
 </project>

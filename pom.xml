@@ -5,6 +5,7 @@
         <groupId>com.develtrex.devolpay</groupId>
         <artifactId>devolpay-parent-pom</artifactId>
         <version>1.0.0</version>
+        <relativePath>../devolpay-parent</relativePath>
     </parent>
     <groupId>com.develtrex.devolpay</groupId>
     <artifactId>devolpay</artifactId>
@@ -16,6 +17,7 @@
         <module>service</module>
         <module>process</module>        
         <module>api-maintenance</module>
+        <module>../../Java/Challenge/jofrantoba-model-jpa</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
