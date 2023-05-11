@@ -13,6 +13,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -21,19 +24,27 @@ import java.util.Date;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-@Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+//@Entity
+@Table(catalog = "devolpay", schema = "devolpay", name = "billingManagers")
 public class BillingManager extends NumericPkV1 implements Serializable {
 
-    private static final long serial_version_uid = -4050448234422138484L;
+     private static final long serial_version_uid = -4050448234422138484L;
     @Column(name = "owner_user_bean")
     private User owner_user_bean;
-    @Column(name = "owner_user_id")
-    private String owner_user_id;
+    
+    //Mapping owner user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_user_id")
+    private String ownerUser;
+    
     @Column(name = "billing_user_bean")
     private User billing_user_bean;
-    @Column(name = "billing_user_id")
-    private String billing_user_id;
+    
+   //Mapping billing user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_user_id")
+    private User billingUser;
+    
     @Column(name = "start_date")
     private Date start_date;
     @Column(name = "end_date")

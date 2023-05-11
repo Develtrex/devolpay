@@ -3,8 +3,11 @@ package com.develtrex.devolpay.config;
 import com.jofrantoba.model.jpa.psf.PSF;
 import com.jofrantoba.model.jpa.psf.connection.ConnectionPropertiesPostgre;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,9 @@ import java.util.List;
 @Configuration
 @ComponentScan(basePackages = {"com.develtrex.devolpay.repository"})
 public class RepositoryConfig {
+    @Autowired
+    @Primary
+    @Bean(name="sessionFactory")
     public SessionFactory getSessionFactory() {
         List<String> packages = new ArrayList();
         packages.add("com.develtrex.devolpay.entity");

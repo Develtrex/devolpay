@@ -11,8 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <version.maven-source-plugin>3.2.1</version.maven-source-plugin>      
-        <version.hibernate-core>5.4.32.Final</version.hibernate-core> 
+        <version.hibernate-core>5.4.32.Final</version.hibernate-core>
         <version.jakarta.validation-api>2.0.2</version.jakarta.validation-api>
         <version.spring-context>5.3.14</version.spring-context>  
         <version.slf4j-api>1.7.32</version.slf4j-api>
@@ -76,21 +75,4 @@
             <version>${version.jackson-datatype-hibernate5}</version>
         </dependency> 
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${version.maven-source-plugin}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

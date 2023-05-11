@@ -18,6 +18,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -27,8 +30,8 @@ import java.util.Set;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-@Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+//@Entity
+@Table(catalog = "devolpay", schema = "devolpay", name = "clients")
 public class Client extends NumericPkV1{
 
     @Column(name = "dni")
@@ -45,8 +48,12 @@ public class Client extends NumericPkV1{
     private User user_bean;
     @Column(name = "version")
     private Long version;
-    @Column(name = "user_id")
-    private String user_id;
+    
+    //Mapping user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+    
     private String operation;
     @Column(name = "client_cod")
     private String client_cod;
@@ -56,14 +63,32 @@ public class Client extends NumericPkV1{
     private String value_generator_id;
     @Column(name = "id_create_client")
     private String id_create_client;
-    @Column(name = "client_manager_id")
-    private String client_manager_id;
-    @Column(name = "billing_manager_id")
-    private String billing_manager_id;
-    @Column(name = "owner_user_id")
-    private String owner_user_id;
-    @Column(name = "billing_user_id")
-    private String billing_user_id;
+    
+    
+    //Mapping client manager
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_manager_id")
+    private ClientManager clientManager;
+    
+    
+   //Mapping billing manager id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_manager_id")
+    private BillingManager billingManager;
+    
+  //Mapping owner user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_user_id")
+    private String ownserUser;
+    
+    @Column(name = "billing_user_bean")
+    private User billing_user_bean;
+    
+   //Mapping billing user
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_user_id")
+    private User billingUser;
+    
     @Column(name = "assigned_clients")
     private Integer assigned_clients=0;
     @Column(name = "is_selected")

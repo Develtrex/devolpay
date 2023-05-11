@@ -21,7 +21,7 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+@Table(catalog = "devolpay", schema = "devolpay", name = "users")
 public class User extends NumericPkV1 implements Serializable {
 
     private static final long serial_version_uid = 1L;
@@ -32,8 +32,6 @@ public class User extends NumericPkV1 implements Serializable {
     private String lastname;
     @Column(name = "email")
     private String email;
-    @Column(name = "version")
-    private Long version;
     @Column(name = "session_id")
     private String session_id;
     @Column(name = "is_rol_owner")
