@@ -25,8 +25,8 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-@Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+//@Entity
+@Table(catalog = "devolpay", schema = "devolpay", name = "clientManagers")
 public class ClientManager extends NumericPkV1 implements Serializable {
 
     private static final long serial_version_uid = 1L;
@@ -36,7 +36,7 @@ public class ClientManager extends NumericPkV1 implements Serializable {
      //Mapping owner user
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_user_id")
-    private String ownserUser;
+    private String ownerUser;
     
     
     @Column(name = "billing_manager_bean")

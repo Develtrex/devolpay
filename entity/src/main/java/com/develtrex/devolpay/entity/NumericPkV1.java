@@ -38,5 +38,5 @@ public class NumericPkV1 implements Serializable{
     @Transient
     protected String operation;
     @Transient
-    protected String user;
+    protected String userS;
 }

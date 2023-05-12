@@ -24,8 +24,8 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-@Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+//@Entity
+@Table(catalog = "devolpay", schema = "devolpay", name = "loans")
 public class Loan extends NumericPkV1 implements Serializable {
 
      private static final long serial_version_uid = 1L;

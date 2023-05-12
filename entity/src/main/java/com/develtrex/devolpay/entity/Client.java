@@ -30,8 +30,8 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-@Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "client")
+//@Entity
+@Table(catalog = "devolpay", schema = "devolpay", name = "clients")
 public class Client extends NumericPkV1{
 
     @Column(name = "dni")
