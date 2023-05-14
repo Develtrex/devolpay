@@ -24,29 +24,24 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-//@Entity
 @Table(catalog = "devolpay", schema = "devolpay", name = "loans")
 public class Loan extends NumericPkV1 implements Serializable {
 
      private static final long serial_version_uid = 1L;
     @Column(name = "date")
     private Date date;
-    @Column(name = "amoun")
+    @Column(name = "amount")
     private Double amount;
     @Column(name = "tax")
     private Double tax;
-    @Column(name = "to_retur")
+    @Column(name = "to_return")
     private Double to_return;
     @Column(name = "returned")
     private Double returned;
-    @Column(name = "state")
-    private String state;
+    @Column(name = "status")
+    private String status;
     @Column(name = "dni")
     private String dni;
-    @Column(name = "version")
-    private Long version;
-    @Column(name = "operation")
-    private String operation;
     @Column(name = "client_bean")
     private Client client_bean;
     

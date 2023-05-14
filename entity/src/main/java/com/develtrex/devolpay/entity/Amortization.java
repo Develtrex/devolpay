@@ -24,7 +24,6 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-//@Entity
 @Table(catalog = "devolpay", schema = "devolpay", name = "amortizations")
 public class Amortization extends NumericPkV1 implements Serializable {
 
@@ -32,9 +31,6 @@ public class Amortization extends NumericPkV1 implements Serializable {
     private Double amount;
     @Column(name = "date")
     private Date date;
-    @Column(name = "version" )
-    private Long version;
-    private String operation;
     @Column(name = "loan_bean")
     private Loan loan_bean;
     
@@ -81,7 +77,4 @@ public class Amortization extends NumericPkV1 implements Serializable {
     private String value_generator_id;
     @Column(name = "id_create_amortization" )
     private String id_create_amortization;
-
-
-
 }
