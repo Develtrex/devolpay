@@ -24,8 +24,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-//@Entity
-@Table(catalog = "devolpay", schema = "devolpay", name = "billingManagers")
+@Table(catalog = "devolpay", schema = "devolpay", name = "billings_manager")
 public class BillingManager extends NumericPkV1 implements Serializable {
 
      private static final long serial_version_uid = -4050448234422138484L;
@@ -49,11 +48,6 @@ public class BillingManager extends NumericPkV1 implements Serializable {
     private Date start_date;
     @Column(name = "end_date")
     private Date end_date;
-    @Column(name = "state")
-    private String state;
-    @Column(name = "version")
-    private Long version;
-    @Column(name = "operation")
-    private String operation;
-
+    @Column(name = "status")
+    private String status;
 }

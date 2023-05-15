@@ -30,7 +30,6 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-//@Entity
 @Table(catalog = "devolpay", schema = "devolpay", name = "clients")
 public class Client extends NumericPkV1{
 
@@ -46,9 +45,7 @@ public class Client extends NumericPkV1{
     private String address;
     @Column(name = "user_bean")
     private User user_bean;
-    @Column(name = "version")
-    private Long version;
-    
+
     //Mapping user
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -79,7 +76,7 @@ public class Client extends NumericPkV1{
   //Mapping owner user
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_user_id")
-    private String ownserUser;
+    private String ownerUser;
     
     @Column(name = "billing_user_bean")
     private User billing_user_bean;
